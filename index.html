@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7 Model Judul Aktualisasi Latsar CPNS</title>
+    <title>Proposal Judul Aktualisasi Latsar CPNS</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,152 +14,188 @@
             text-align: center;
             color: #333;
         }
-        .title-list {
-            list-style: none;
-            padding: 0;
+        .judul-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
-        .title-item {
+        .judul {
             background-color: #fff;
-            margin: 10px 0;
             padding: 15px;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        .title-item:hover {
+        .judul:hover {
             background-color: #e9e9e9;
         }
-        .modal {
+        .detail {
             display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #007bff;
+        }
+        .feedback {
+            margin-top: 10px;
+        }
+        .feedback input, .feedback textarea {
             width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            justify-content: center;
-            align-items: center;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
-        .modal-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            width: 80%;
-            max-width: 600px;
-            text-align: left;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
+        .feedback button {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
             cursor: pointer;
         }
-        .close:hover {
-            color: #000;
+        .feedback button:hover {
+            background-color: #0056b3;
         }
-        h2 {
-            margin-top: 0;
-        }
-        p {
-            margin: 10px 0;
+        .submitted-feedback {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+            color: #155724;
         }
     </style>
 </head>
 <body>
-    <h1>7 Model Judul Aktualisasi Latsar CPNS</h1>
-    <p>Klik salah satu judul di bawah untuk melihat masalah, solusi, dan outputnya.</p>
-    <ul class="title-list" id="title-list"></ul>
+    <h1>Proposal Judul Aktualisasi Latsar CPNS</h1>
+    <p>Klik pada judul untuk melihat masalah, solusi, dan output. Berikan feedback di bawahnya.</p>
+    <div class="judul-list">
+        <div class="judul" onclick="toggleDetail(1)">Op</div>
+        <div class="detail" id="detail1">
+            <h3>Masalah:</h3>
+            <p>Kurangnya kompetensi pegawai negeri sipil akibat proses rekrutmen yang belum optimal.</p>
+            <h3>Solusi:</h3>
+            <p>Implementasi program latsar yang lebih intensif dengan fokus pada pelatihan praktis dan pengembangan keterampilan.</p>
+            <h3>Output:</h3>
+            <p>Peningkatan produktivitas pegawai hingga 30% dalam 2 tahun.</p>
+            <div class="feedback">
+                <textarea placeholder="Masukkan feedback Anda..."></textarea>
+                <button onclick="submitFeedback(1)">Kirim Feedback</button>
+            </div>
+            <div class="submitted-feedback" id="feedback1" style="display: none;"></div>
+        </div>
 
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="close-modal">&times;</span>
-            <h2 id="modal-title"></h2>
-            <p><strong>Masalah:</strong> <span id="modal-issue"></span></p>
-            <p><strong>Solusi:</strong> <span id="modal-solution"></span></p>
-            <p><strong>Output:</strong> <span id="modal-output"></span></p>
+        <div class="judul" onclick="toggleDetail(2)">2. Strategi Aktualisasi Latsar CPNS untuk Mengatasi Kesenjangan Kualitas Pendidikan di Daerah Terpencil</div>
+        <div class="detail" id="detail2">
+            <h3>Masalah:</h3>
+            <p>Kesenjangan kualitas pendidikan antara daerah perkotaan dan terpencil mempengaruhi efektivitas latsar.</p>
+            <h3>Solusi:</h3>
+            <p>Pengembangan modul latsar yang disesuaikan dengan kondisi daerah, termasuk penggunaan teknologi digital.</p>
+            <h3>Output:</h3>
+            <p>Penyebaran kompetensi yang lebih merata, dengan peningkatan partisipasi daerah terpencil sebesar 25%.</p>
+            <div class="feedback">
+                <textarea placeholder="Masukkan feedback Anda..."></textarea>
+                <button onclick="submitFeedback(2)">Kirim Feedback</button>
+            </div>
+            <div class="submitted-feedback" id="feedback2" style="display: none;"></div>
+        </div>
+
+        <div class="judul" onclick="toggleDetail(3)">3. Evaluasi Efektivitas Program Latsar CPNS dalam Meningkatkan Loyalitas dan Retensi Pegawai</div>
+        <div class="detail" id="detail3">
+            <h3>Masalah:</h3>
+            <p>Tingginya turnover pegawai negeri sipil karena kurangnya loyalitas pasca-latsar.</p>
+            <h3>Solusi:</h3>
+            <p>Integrasi elemen pembinaan mental dan karir dalam program latsar untuk membangun komitmen jangka panjang.</p>
+            <h3>Output:</h3>
+            <p>Penurunan turnover hingga 20% dan peningkatan kepuasan kerja.</p>
+            <div class="feedback">
+                <textarea placeholder="Masukkan feedback Anda..."></textarea>
+                <button onclick="submitFeedback(3)">Kirim Feedback</button>
+            </div>
+            <div class="submitted-feedback" id="feedback3" style="display: none;"></div>
+        </div>
+
+        <div class="judul" onclick="toggleDetail(4)">4. Inovasi Teknologi dalam Aktualisasi Latsar CPNS untuk Era Digital</div>
+        <div class="detail" id="detail4">
+            <h3>Masalah:</h3>
+            <p>Program latsar yang masih konvensional tidak mampu mengikuti perkembangan teknologi digital.</p>
+            <h3>Solusi:</h3>
+            <p>Penerapan e-learning dan simulasi virtual dalam kurikulum latsar.</p>
+            <h3>Output:</h3>
+            <p>Peningkatan kemampuan digital peserta latsar sebesar 40%, dengan biaya efisiensi 15%.</p>
+            <div class="feedback">
+                <textarea placeholder="Masukkan feedback Anda..."></textarea>
+                <button onclick="submitFeedback(4)">Kirim Feedback</button>
+            </div>
+            <div class="submitted-feedback" id="feedback4" style="display: none;"></div>
+        </div>
+
+        <div class="judul" onclick="toggleDetail(5)">5. Dampak Latsar CPNS terhadap Pembangunan Berkelanjutan di Sektor Publik</div>
+        <div class="detail" id="detail5">
+            <h3>Masalah:</h3>
+            <p>Kurangnya kontribusi pegawai negeri terhadap pembangunan berkelanjutan.</p>
+            <h3>Solusi:</h3>
+            <p>Integrasi modul pembangunan berkelanjutan dalam latsar, seperti pelatihan lingkungan dan sosial.</p>
+            <h3>Output:</h3>
+            <p>Peningkatan inisiatif pembangunan berkelanjutan di instansi pemerintah sebesar 35%.</p>
+            <div class="feedback">
+                <textarea placeholder="Masukkan feedback Anda..."></textarea>
+                <button onclick="submitFeedback(5)">Kirim Feedback</button>
+            </div>
+            <div class="submitted-feedback" id="feedback5" style="display: none;"></div>
+        </div>
+
+        <div class="judul" onclick="toggleDetail(6)">6. Peran Latsar CPNS dalam Mendorong Inovasi dan Kreativitas Pegawai Negeri</div>
+        <div class="detail" id="detail6">
+            <h3>Masalah:</h3>
+            <p>Birokrasi yang kaku menghambat inovasi di lingkungan pegawai negeri.</p>
+            <h3>Solusi:</h3>
+            <p>Pengembangan program latsar yang mendorong pemikiran kreatif melalui workshop dan proyek kolaboratif.</p>
+            <h3>Output:</h3>
+            <p>Peningkatan jumlah inovasi yang diimplementasikan sebesar 50% dalam 3 tahun.</p>
+            <div class="feedback">
+                <textarea placeholder="Masukkan feedback Anda..."></textarea>
+                <button onclick="submitFeedback(6)">Kirim Feedback</button>
+            </div>
+            <div class="submitted-feedback" id="feedback6" style="display: none;"></div>
+        </div>
+
+        <div class="judul" onclick="toggleDetail(7)">7. Tantangan dan Peluang Aktualisasi Latsar CPNS Pasca-Pandemi COVID-19</div>
+        <div class="detail" id="detail7">
+            <h3>Masalah:</h3>
+            <p>Pandemi COVID-19 mengganggu proses latsar dan mengubah dinamika kerja pegawai.</p>
+            <h3>Solusi:</h3>
+            <p>Adaptasi program latsar dengan model hybrid (online-offline) dan fokus pada resiliensi.</p>
+            <h3>Output:</h3>
+            <p>Pemulihan efektivitas latsar sebesar 90% dengan peningkatan kesiapsiagaan pegawai terhadap krisis.</p>
+            <div class="feedback">
+                <textarea placeholder="Masukkan feedback Anda..."></textarea>
+                <button onclick="submitFeedback(7)">Kirim Feedback</button>
+            </div>
+            <div class="submitted-feedback" id="feedback7" style="display: none;"></div>
         </div>
     </div>
 
     <script>
-        const titles = [
-            {
-                title: "Pengembangan Kompetensi Digital untuk Aktualisasi Latsar CPNS di Era Industri 4.0",
-                issue: "Kurangnya keterampilan digital di kalangan CPNS menyebabkan inefisiensi dalam pelayanan publik.",
-                solution: "Implementasi program pelatihan digital intensif selama Latsar, termasuk kursus online dan simulasi teknologi.",
-                output: "CPNS yang lebih kompeten dalam menggunakan teknologi, meningkatkan produktivitas pelayanan publik sebesar 30%."
-            },
-            {
-                title: "Strategi Aktualisasi Latsar CPNS untuk Meningkatkan Etika dan Integritas Pegawai Negeri",
-                issue: "Masalah korupsi dan pelanggaran etika masih tinggi di lingkungan pegawai negeri.",
-                solution: "Integrasi modul etika dan anti-korupsi dalam kurikulum Latsar, dengan simulasi kasus nyata.",
-                output: "Penurunan kasus pelanggaran etika hingga 20% dalam 2 tahun pasca-Latsar."
-            },
-            {
-                title: "Aktualisasi Latsar CPNS Melalui Pendekatan Inovasi dalam Pengelolaan Sumber Daya Manusia",
-                issue: "Sistem pengelolaan SDM yang kaku menghambat inovasi di instansi pemerintah.",
-                solution: "Reformasi kurikulum Latsar dengan fokus pada inovasi, seperti workshop kreativitas dan studi kasus.",
-                output: "Peningkatan inovasi program di instansi, dengan 15% lebih banyak ide baru diimplementasikan."
-            },
-            {
-                title: "Penerapan Model Aktualisasi Latsar CPNS untuk Adaptasi terhadap Perubahan Sosial dan Budaya",
-                issue: "CPNS kurang siap menghadapi dinamika sosial dan budaya masyarakat yang berubah cepat.",
-                solution: "Tambahkan modul studi sosial dan budaya dalam Latsar, termasuk kunjungan lapangan.",
-                output: "CPNS yang lebih adaptif, mengurangi konflik sosial dalam pelayanan publik."
-            },
-            {
-                title: "Aktualisasi Latsar CPNS dengan Fokus pada Kesehatan Mental dan Kesejahteraan Pegawai",
-                issue: "Tingginya stres dan burnout di kalangan pegawai negeri akibat beban kerja.",
-                solution: "Sertakan sesi kesehatan mental dan manajemen stres dalam program Latsar.",
-                output: "Penurunan tingkat burnout sebesar 25%, meningkatkan retensi pegawai."
-            },
-            {
-                title: "Model Aktualisasi Latsar CPNS untuk Penguatan Kolaborasi Antar-Institusi Pemerintah",
-                issue: "Kurangnya koordinasi antar-institusi menyebabkan tumpang tindih program.",
-                solution: "Latih kolaborasi melalui simulasi proyek lintas-institusi selama Latsar.",
-                output: "Peningkatan efisiensi program pemerintah, menghemat anggaran hingga 10%."
-            },
-            {
-                title: "Aktualisasi Latsar CPNS Melalui Integrasi Teknologi Hijau untuk Pembangunan Berkelanjutan",
-                issue: "Kurangnya kesadaran lingkungan di kalangan CPNS menghambat pembangunan hijau.",
-                solution: "Tambahkan modul teknologi hijau dan keberlanjutan dalam kurikulum Latsar.",
-                output: "Kontribusi CPNS dalam program lingkungan, seperti pengurangan emisi karbon sebesar 15%."
+        function toggleDetail(id) {
+            const detail = document.getElementById('detail' + id);
+            detail.style.display = detail.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function submitFeedback(id) {
+            const textarea = document.querySelector('#detail' + id + ' textarea');
+            const feedbackText = textarea.value.trim();
+            if (feedbackText) {
+                const feedbackDiv = document.getElementById('feedback' + id);
+                feedbackDiv.innerHTML = '<strong>Feedback Anda:</strong> ' + feedbackText;
+                feedbackDiv.style.display = 'block';
+                textarea.value = ''; // Clear the textarea
+            } else {
+                alert('Silakan masukkan feedback terlebih dahulu.');
             }
-        ];
-
-        const titleList = document.getElementById('title-list');
-        const modal = document.getElementById('modal');
-        const modalTitle = document.getElementById('modal-title');
-        const modalIssue = document.getElementById('modal-issue');
-        const modalSolution = document.getElementById('modal-solution');
-        const modalOutput = document.getElementById('modal-output');
-        const closeModal = document.getElementById('close-modal');
-
-        titles.forEach((item, index) => {
-            const li = document.createElement('li');
-            li.className = 'title-item';
-            li.textContent = `${index + 1}. ${item.title}`;
-            li.addEventListener('click', () => {
-                modalTitle.textContent = item.title;
-                modalIssue.textContent = item.issue;
-                modalSolution.textContent = item.solution;
-                modalOutput.textContent = item.output;
-                modal.style.display = 'flex';
-            });
-            titleList.appendChild(li);
-        });
-
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        window.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
+        }
     </script>
 </body>
 </html>
