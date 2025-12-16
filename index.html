@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Model Judul Aktualisasi Latsar CPNS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .title-list {
+            list-style: none;
+            padding: 0;
+        }
+        .title-item {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .title-item:hover {
+            background-color: #e9e9e9;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 600px;
+            text-align: left;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #000;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>7 Model Judul Aktualisasi Latsar CPNS</h1>
+    <p>Klik salah satu judul di bawah untuk melihat masalah, solusi, dan outputnya.</p>
+    <ul class="title-list" id="title-list"></ul>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-modal">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p><strong>Masalah:</strong> <span id="modal-issue"></span></p>
+            <p><strong>Solusi:</strong> <span id="modal-solution"></span></p>
+            <p><strong>Output:</strong> <span id="modal-output"></span></p>
+        </div>
+    </div>
+
+    <script>
+        const titles = [
+            {
+                title: "Pengembangan Kompetensi Digital untuk Aktualisasi Latsar CPNS di Era Industri 4.0",
+                issue: "Kurangnya keterampilan digital di kalangan CPNS menyebabkan inefisiensi dalam pelayanan publik.",
+                solution: "Implementasi program pelatihan digital intensif selama Latsar, termasuk kursus online dan simulasi teknologi.",
+                output: "CPNS yang lebih kompeten dalam menggunakan teknologi, meningkatkan produktivitas pelayanan publik sebesar 30%."
+            },
+            {
+                title: "Strategi Aktualisasi Latsar CPNS untuk Meningkatkan Etika dan Integritas Pegawai Negeri",
+                issue: "Masalah korupsi dan pelanggaran etika masih tinggi di lingkungan pegawai negeri.",
+                solution: "Integrasi modul etika dan anti-korupsi dalam kurikulum Latsar, dengan simulasi kasus nyata.",
+                output: "Penurunan kasus pelanggaran etika hingga 20% dalam 2 tahun pasca-Latsar."
+            },
+            {
+                title: "Aktualisasi Latsar CPNS Melalui Pendekatan Inovasi dalam Pengelolaan Sumber Daya Manusia",
+                issue: "Sistem pengelolaan SDM yang kaku menghambat inovasi di instansi pemerintah.",
+                solution: "Reformasi kurikulum Latsar dengan fokus pada inovasi, seperti workshop kreativitas dan studi kasus.",
+                output: "Peningkatan inovasi program di instansi, dengan 15% lebih banyak ide baru diimplementasikan."
+            },
+            {
+                title: "Penerapan Model Aktualisasi Latsar CPNS untuk Adaptasi terhadap Perubahan Sosial dan Budaya",
+                issue: "CPNS kurang siap menghadapi dinamika sosial dan budaya masyarakat yang berubah cepat.",
+                solution: "Tambahkan modul studi sosial dan budaya dalam Latsar, termasuk kunjungan lapangan.",
+                output: "CPNS yang lebih adaptif, mengurangi konflik sosial dalam pelayanan publik."
+            },
+            {
+                title: "Aktualisasi Latsar CPNS dengan Fokus pada Kesehatan Mental dan Kesejahteraan Pegawai",
+                issue: "Tingginya stres dan burnout di kalangan pegawai negeri akibat beban kerja.",
+                solution: "Sertakan sesi kesehatan mental dan manajemen stres dalam program Latsar.",
+                output: "Penurunan tingkat burnout sebesar 25%, meningkatkan retensi pegawai."
+            },
+            {
+                title: "Model Aktualisasi Latsar CPNS untuk Penguatan Kolaborasi Antar-Institusi Pemerintah",
+                issue: "Kurangnya koordinasi antar-institusi menyebabkan tumpang tindih program.",
+                solution: "Latih kolaborasi melalui simulasi proyek lintas-institusi selama Latsar.",
+                output: "Peningkatan efisiensi program pemerintah, menghemat anggaran hingga 10%."
+            },
+            {
+                title: "Aktualisasi Latsar CPNS Melalui Integrasi Teknologi Hijau untuk Pembangunan Berkelanjutan",
+                issue: "Kurangnya kesadaran lingkungan di kalangan CPNS menghambat pembangunan hijau.",
+                solution: "Tambahkan modul teknologi hijau dan keberlanjutan dalam kurikulum Latsar.",
+                output: "Kontribusi CPNS dalam program lingkungan, seperti pengurangan emisi karbon sebesar 15%."
+            }
+        ];
+
+        const titleList = document.getElementById('title-list');
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalIssue = document.getElementById('modal-issue');
+        const modalSolution = document.getElementById('modal-solution');
+        const modalOutput = document.getElementById('modal-output');
+        const closeModal = document.getElementById('close-modal');
+
+        titles.forEach((item, index) => {
+            const li = document.createElement('li');
+            li.className = 'title-item';
+            li.textContent = `${index + 1}. ${item.title}`;
+            li.addEventListener('click', () => {
+                modalTitle.textContent = item.title;
+                modalIssue.textContent = item.issue;
+                modalSolution.textContent = item.solution;
+                modalOutput.textContent = item.output;
+                modal.style.display = 'flex';
+            });
+            titleList.appendChild(li);
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
